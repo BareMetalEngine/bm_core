@@ -1,8 +1,12 @@
 name: BareMetal Core
 on: [push]
 jobs:
-  BuildLinux:
-    runs-on: ubuntu-latest
+  BuildWindows:
+    runs-on: windows-2022
+    strategy:
+      matrix:
+        config: [release, debug, checked, final]
+        libs: [shared, static]
     env:
       GITHUB_TOKEN: ${{secrets.ONION_GIT_PUBLIC_TOKEN}}
     steps:
@@ -12,12 +16,15 @@ jobs:
       - run: |
               git clone https://github.com/BareMetalEngine/onion.git C:\onion
               C:\onion\onion.exe configure
-              C:\onion\onion.exe make
+              C:\onion\onion.exe make -config=${{matrix.config}} -libs=${{matrix.libs}}
               C:\onion\onion.exe build
               C:\onion\onion.exe test
-  BuildWindows:
-    runs-on: windows-2022
-    needs: BuildLinux
+  BuildLinux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config: [release, debug, checked, final]
+        libs: [shared, static]
     env:
       GITHUB_TOKEN: ${{secrets.ONION_GIT_PUBLIC_TOKEN}}
     steps:
@@ -27,6 +34,6 @@ jobs:
       - run: |
               git clone https://github.com/BareMetalEngine/onion.git ~/onion/
               ~/onion/onion configure
-              ~/onion/onion make
+              ~/onion/onion make -config=${{matrix.config}} -libs=${{matrix.libs}}
               ~/onion/onion build
               ~/onion/onion test
