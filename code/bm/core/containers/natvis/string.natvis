@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- [# filter: natvis #] -->
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<Type Name="inferno::StringBuf">
+		<DisplayString Condition="(m_data == nullptr)">null</DisplayString>
+		<DisplayString Condition="(m_data != nullptr)">{(char*)(m_data->m_txt),s8}'</DisplayString>
+		<Expand>
+			<ExpandedItem>m_data</ExpandedItem>
+			<ArrayItems Condition="(m_data != nullptr)">
+				<Size>m_data->m_length</Size>
+				<ValuePointer>m_data->m_txt</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+	<Type Name="inferno::StringView">
+		<DisplayString Condition="(m_start > m_end)">corrupted</DisplayString>
+		<DisplayString Condition="(m_start == nullptr) &amp;&amp; (m_end == nullptr)">null</DisplayString>
+		<DisplayString Condition="(m_start == m_end)">empty</DisplayString>
+		<DisplayString Condition="(m_end >= m_start)">{m_start,[m_end - m_start]s8}</DisplayString>
+		<Expand>
+			<Item Name="[length]" Condition="(m_end >= m_start)">m_end - m_start</Item>
+			<ArrayItems>
+				<Size>m_end - m_start</Size>
+				<ValuePointer>m_start</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+	<Type Name="inferno::StringBuilder">
+		<DisplayString Condition="(m_buffer.m_pos == m_buffer.m_start)">empty</DisplayString>
+		<DisplayString Condition="(m_buffer.m_pos >= m_buffer.m_start)">{m_buffer.m_start,s8}</DisplayString>
+		<Expand>
+			<Item Name="[text]">m_buffer.m_start,s8</Item>
+			<Item Name="[length]">m_buffer.m_pos - m_buffer.m_start</Item>
+			<Item Name="[capacity]">m_buffer.m_end - m_buffer.m_start</Item>
+		</Expand>
+	</Type>
+	<Type Name="inferno::StringID">
+		<DisplayString Condition="indexValue == 0">[empty]</DisplayString>
+		<DisplayString Condition="indexValue != 0">{(debugTxt),s8}</DisplayString>		
+	</Type>
+</AutoVisualizer>

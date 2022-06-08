@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- [# filter: natvis #] -->
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+
+	<Type Name="inferno::BaseArrayBuffer">
+		<DisplayString Condition="m_ptr == 0">[Empty Buffer]</DisplayString>
+		<DisplayString Condition="(m_ptr != nullptr) &amp;&amp; (m_flagOwned)">[Heap Buffer with {m_capacity} elements]</DisplayString>
+		<DisplayString Condition="(m_ptr != nullptr) &amp;&amp; (!m_flagOwned)">[External buffer with {m_capacity} elements]</DisplayString>
+		<Expand>
+			<Item Name="m_ptr">m_ptr,hv</Item>
+		</Expand>
+	</Type>
+
+	<Type Name="inferno::BaseArray">
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (m_buffer.m_capacity == 0)">[Empty Array]</DisplayString>
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (m_buffer.m_capacity > 0) &amp;&amp; (m_buffer.m_flagOwned)">[Empty Heap array with {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (m_buffer.m_capacity > 0) &amp;&amp; (!m_buffer.m_flagOwned)">[Empty Inplace array with {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<DisplayString Condition="m_size > m_buffer.m_capacity">[Corrupted]</DisplayString>
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (m_buffer.m_flagOwned)">[Heap Array of {m_size,i} elements, {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (!m_buffer.m_flagOwned)">[External Array of {m_size,i} elements, {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<Expand>
+			<Item Name="m_size">m_size</Item>
+			<Item Name="m_buffer">m_buffer</Item>
+		</Expand>
+	</Type>
+
+	<Type Name="inferno::Array&lt;*&gt;">
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (m_buffer.m_capacity == 0)">[Empty Array]</DisplayString>
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (m_buffer.m_capacity > 0) &amp;&amp; (m_buffer.m_flagOwned)">[Empty Heap array with {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (m_buffer.m_capacity > 0) &amp;&amp; (!m_buffer.m_flagOwned)">[Empty Inplace array with {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<DisplayString Condition="m_size > m_buffer.m_capacity">[Corrupted]</DisplayString>
+		<DisplayString Condition="(m_size > 0) &amp;&amp; (m_buffer.m_flagOwned)">[Heap Array of {m_size,i} elements, {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<DisplayString Condition="(m_size > 0) &amp;&amp; (!m_buffer.m_flagOwned)">[Inplace Array of {m_size,i} elements, {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<Expand>
+			<Item Name="m_size">m_size</Item>
+			<ArrayItems>
+				<Size>m_size</Size>
+				<ValuePointer>($T1*)m_buffer.m_ptr</ValuePointer>
+			</ArrayItems>
+			<Item Name="m_buffer">m_buffer</Item>
+		</Expand>
+	</Type>
+
+	<Type Name="inferno::InplaceArray&lt;*,*&gt;">
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (m_buffer.m_capacity == 0)">[Empty Array]</DisplayString>
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (m_buffer.m_capacity > 0) &amp;&amp; (m_buffer.m_flagOwned)">[Empty Heap array with {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<DisplayString Condition="(m_size == 0) &amp;&amp; (m_buffer.m_capacity > 0) &amp;&amp; (!m_buffer.m_flagOwned)">[Empty Inplace array with {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<DisplayString Condition="m_size > m_buffer.m_capacity">[Corrupted]</DisplayString>
+		<DisplayString Condition="(m_size > 0) &amp;&amp; (m_buffer.m_flagOwned)">[Heap Array of {m_size,i} elements, {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<DisplayString Condition="(m_size > 0) &amp;&amp; (!m_buffer.m_flagOwned)">[Inplace Array of {m_size,i} elements, {m_buffer.m_capacity,i} capacity]</DisplayString>
+		<Expand>
+			<Item Name="m_size">m_size</Item>
+			<ArrayItems>
+				<Size>m_size</Size>
+				<ValuePointer>($T1*)m_buffer.m_ptr</ValuePointer>
+			</ArrayItems>
+			<Item Name="m_buffer">m_buffer</Item>
+		</Expand>
+	</Type>
+
+
+</AutoVisualizer>

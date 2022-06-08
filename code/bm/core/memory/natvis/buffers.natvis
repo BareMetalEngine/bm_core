@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- [# filter: natvis #] -->
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<Type Name="inferno::Buffer">
+		<DisplayString Condition="(m_storage == nullptr)">null</DisplayString>
+		<DisplayString Condition="(m_storage != nullptr) &amp; &amp; (m_storage->m_externalPayload == nullptr)">Owned {m_storage->m_size} bytes at {((char*)m_storage + m_storage->m_externalPayload),hv}</DisplayString>
+		<DisplayString Condition="(m_storage != nullptr) &amp; &amp; (m_storage->m_externalPayload != nullptr)">External {m_storage->m_size} bytes at {m_storage->m_externalPayload,hv}</DisplayString>
+		<Expand>
+			<ArrayItems Condition="(m_storage != nullptr)">
+				<Size>m_storage->m_size</Size>
+				<ValuePointer Condition="(m_storage->m_externalPayload == nullptr)">(char*)m_storage + m_storage->m_externalPayload</ValuePointer>
+				<ValuePointer Condition="(m_storage->m_externalPayload != nullptr)">m_storage->m_externalPayload</ValuePointer>
+			</ArrayItems>
+			<ExpandedItem>m_storage</ExpandedItem>
+		</Expand>
+	</Type>
+	<Type Name="inferno::InplaceBuffer&lt;*,*&gt;">
+		<DisplayString Condition="(m_pos == m_start)">empty</DisplayString>
+		<DisplayString Condition="(m_pos >= m_start) &amp;&amp; (m_start == m_staticBuffer)">Inplace, {m_pos-m_start} bytes</DisplayString>
+		<DisplayString Condition="(m_pos >= m_start) &amp;&amp; (m_start != m_staticBuffer)">Heap, {m_pos-m_start} bytes</DisplayString>
+		<Expand>
+			<Item Name="[length]">m_pos - m_start</Item>
+			<Item Name="[capacity]">m_end - m_start</Item>
+			<ArrayItems>
+				<Size>m_pos - m_start</Size>
+				<ValuePointer>m_start</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+	<Type Name="inferno::BufferView">
+		<DisplayString Condition="(m_end == m_start)">empty</DisplayString>
+		<DisplayString Condition="(m_end >= m_start)">View of {m_end-m_start} bytes at {m_start,hv}</DisplayString>
+		<DisplayString Condition="(m_end $lt; m_start)">corrupted</DisplayString>
+		<Expand>
+			<Item Name="[length]">{m_end-m_start}</Item>
+			<ArrayItems>
+				<Size>m_end - m_start</Size>
+				<ValuePointer>m_start</ValuePointer>
+			</ArrayItems>
+		</Expand>
+	</Type>
+</AutoVisualizer>

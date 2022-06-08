@@ -1,0 +1,201 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resources.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include <windows.h>
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Polish (Poland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PLK)
+LANGUAGE LANG_POLISH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_SPLASH              BITMAP                  "splash.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ASSERT DIALOGEX 0, 0, 667, 410
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "Runtime Error"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Error occured during execution:",-1,7,7,188,8
+    EDITTEXT        IDC_ERROR_TEXT,7,22,653,58,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | WS_VSCROLL,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "&Ignore",IDC_IGNORE,4,372,155,31
+    PUSHBUTTON      "&Break",IDC_BREAK,338,372,155,31
+    PUSHBUTTON      "&Exit",IDC_EXIT,505,372,155,31
+    PUSHBUTTON      "&Disable",IDC_DISABLE,171,372,155,31
+    LTEXT           "Callstack retrieved from application (can be invalid):",-1,7,88,166,8
+    EDITTEXT        IDC_ERROR_CALLSTACK,7,101,653,266,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER | WS_VSCROLL,WS_EX_CLIENTEDGE
+END
+
+IDD_SPLASH DIALOGEX 0, 0, 480, 269
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CENTER | WS_POPUP | DS_SETFOREGROUND
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         IDB_SPLASH,-1,"Static",SS_BITMAP,0,0,480,253
+    LTEXT           "Build 0.4.9.1045",IDC_BUILD_TEXT,5,239,260,8
+    LTEXT           "Application is starting...",IDC_PROGRESS_TEXT,4,257,473,8
+END
+
+IDD_SCRIPT_ERRORS DIALOGEX 0, 0, 799, 319
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOPMOST
+CAPTION "Script Compilation Errors"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Retry Script Compilation",IDC_RETRY,427,298,90,14
+    PUSHBUTTON      "Exit Application",IDC_EXIT,710,298,82,14
+    EDITTEXT        IDC_ERROR_LIST,7,7,785,280,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    PUSHBUTTON      "Skip Script Compilation",IDC_IGNORE,628,298,81,14
+    DEFPUSHBUTTON   "Copy to Clipboard",IDC_COPY,519,298,90,14
+END
+
+IDD_SHADER_ERRORS DIALOGEX 0, 0, 799, 319
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOPMOST
+CAPTION "Shader Compilation Errors"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Retry Shader Compilation",IDC_RETRY,427,298,90,14
+    PUSHBUTTON      "Exit Application",IDC_EXIT,710,298,82,14
+    EDITTEXT        IDC_ERROR_LIST,7,7,785,280,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY |  WS_VSCROLL
+    PUSHBUTTON      "Skip Shader Compilation",IDC_IGNORE,628,298,81,14
+    DEFPUSHBUTTON   "Copy to Clipboard",IDC_COPY,519,298,90,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ASSERT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 660
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 403
+    END
+
+    IDD_SPLASH, DIALOG
+    BEGIN
+        RIGHTMARGIN, 279
+        BOTTOMMARGIN, 163
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resources.h\r\n"
+    "#include <windows.h>\r\n"
+    "#define IDC_STATIC -1\r\n"
+    "\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include <windows.h>\r\n\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,0,0,1
+ PRODUCTVERSION 0,0,0,1
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041504b0"
+        BEGIN
+            VALUE "CompanyName", "Inferno Engine"
+            VALUE "FileDescription", "InfernoEngine"
+            VALUE "FileVersion", "(INTERNAL VERSION)"
+            VALUE "InternalName", "InfernoEngine"
+            VALUE "LegalCopyright", "Copyright (C) 2021"
+            VALUE "OriginalFilename", "inferno.exe"
+            VALUE "ProductName", "Inferno Engine"
+            VALUE "ProductVersion", "(INTERNAL VERSION)"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x415, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_SPLASH AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // Polish (Poland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

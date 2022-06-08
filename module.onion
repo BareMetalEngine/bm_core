@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<Module guid="11c91495-7c87-4489-beca-2025f4afee55">
+
+	<Library>
+		<SourceRoot>bm/core/system</SourceRoot>
+	</Library>
+
+	<Library>
+		<SourceRoot>bm/core/memory</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<LibraryDependency>zlib</LibraryDependency>
+		<LibraryDependency>lz4</LibraryDependency>
+	</Library>
+
+	<Library>
+		<SourceRoot>bm/core/containers</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+	</Library>
+
+	<Library>
+		<SourceRoot>bm/core/task</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+	</Library>
+
+	<Library>
+		<SourceRoot>bm/core/file</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+		<Dependency>bm/core/task</Dependency>
+	</Library>
+
+	<Library>
+		<SourceRoot>bm/core/parser</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+		<Dependency>bm/core/file</Dependency>
+	</Library>
+
+	<Library>
+		<SourceRoot>bm/core/object</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+		<Dependency>bm/core/file</Dependency>
+		<Dependency>bm/core/task</Dependency>
+		<Dependency>bm/core/parser</Dependency>
+	</Library>
+
+	<Library>
+		<SourceRoot>bm/core/math</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+		<Dependency>bm/core/object</Dependency>		
+	</Library>
+
+	<Library>
+		<SourceRoot>bm/core/graph</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+		<Dependency>bm/core/object</Dependency>		
+		<Dependency>bm/core/math</Dependency>		
+	</Library>
+
+	<TestApplication>
+		<SourceRoot>test/core/system</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+	</TestApplication>
+
+	<TestApplication>
+		<SourceRoot>test/core/memory</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+	</TestApplication>
+
+	<TestApplication>
+		<SourceRoot>test/core/containers</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+	</TestApplication>
+
+	<TestApplication>
+		<SourceRoot>test/core/task</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+		<Dependency>bm/core/task</Dependency>
+	</TestApplication>
+
+	<TestApplication>
+		<SourceRoot>test/core/file</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+		<Dependency>bm/core/task</Dependency>
+		<Dependency>bm/core/file</Dependency>
+	</TestApplication>
+
+	<TestApplication>
+		<SourceRoot>test/core/parser</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+		<Dependency>bm/core/file</Dependency>
+		<Dependency>bm/core/parser</Dependency>
+		<Dependency>bm/core/task</Dependency>
+	</TestApplication>
+
+	<TestApplication>
+		<SourceRoot>test/core/object</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+		<Dependency>bm/core/file</Dependency>
+		<Dependency>bm/core/object</Dependency>
+		<Dependency>bm/core/parser</Dependency>
+		<Dependency>bm/core/math</Dependency>
+		<Dependency>bm/core/task</Dependency>
+	</TestApplication>
+
+	<TestApplication>
+		<SourceRoot>test/core/math</SourceRoot>
+		<Dependency>bm/core/system</Dependency>
+		<Dependency>bm/core/memory</Dependency>
+		<Dependency>bm/core/containers</Dependency>
+		<Dependency>bm/core/object</Dependency>
+		<Dependency>bm/core/math</Dependency>
+		<Dependency>bm/core/task</Dependency>
+	</TestApplication>
+
+</Module>

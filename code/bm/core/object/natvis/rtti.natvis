@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- [# filter: natvis #] -->
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<Type Name="inferno::IType">
+		<DisplayString>{m_name}</DisplayString>
+	</Type>
+	<Type Name="inferno::Type">
+		<DisplayString Condition="m_type == nullptr">null</DisplayString>
+		<DisplayString Condition="m_type != nullptr">{m_type->m_name}</DisplayString>
+	</Type>
+	<Type Name="inferno::ClassType">
+		<DisplayString Condition="m_classType == nullptr">null</DisplayString>
+		<DisplayString Condition="m_classType != nullptr">{m_type->m_name}</DisplayString>
+	</Type>
+	<Type Name="inferno::RefPtr&lt;*&gt;">
+		<DisplayString Condition="(m_ptr == nullptr)">null</DisplayString>
+		<DisplayString Condition="(m_ptr != nullptr)">RefPtr {*m_ptr}</DisplayString>
+		<Expand>
+			<Item Name="[ptr]" Condition="m_ptr != nullptr">m_ptr</Item>
+		</Expand>
+	</Type>
+</AutoVisualizer>
